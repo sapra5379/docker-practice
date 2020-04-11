@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dockerfirst -f Dockerfile.dev .
+
+script:
+  - docker run dockerfirst npm run test -- --coverage   
